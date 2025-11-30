@@ -20,8 +20,7 @@ class ResetDbCommand extends Command
     public function handle()
     {
         try {
-            // throw new \Exception('mygolf slack-test exception');
-            // Artisan::call('migrate:fresh --seed --force');
+            Artisan::call('migrate:fresh --seed --force');
 
             Http::retry(3, 200)
                 ->timeout(5)
