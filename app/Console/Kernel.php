@@ -12,10 +12,7 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule): void
     {
-        $schedule->command('migrate:fresh', [
-            '--seed' => true,
-            '--force' => true 
-        ])
+        $schedule->command('app:reset-db-command')
         ->mondays()
         ->at('04:00')
         ->appendOutputTo(storage_path('logs/scheduler.log'));
